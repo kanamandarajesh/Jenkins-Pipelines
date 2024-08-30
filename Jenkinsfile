@@ -7,7 +7,7 @@ pipeline
         {
             steps
             {   
-                git 'https://github.com/kanamandarajesh/Functional-testing.git'
+                git 'https://github.com/kanamandarajesh/Jenkins-Pipelines.git'
                 sh 'java -jar /var/lib/jenkins/workspace/MultiBranch-Pipeline_loans/testing.jar'
             }
         }
