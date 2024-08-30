@@ -8,7 +8,7 @@ pipeline
             steps
             {   
                 git 'https://github.com/kanamandarajesh/Functional-testing.git'
-                sh 'java -jar /var/lib/jenkins/workspace/MultiBranch-Pipeline_master/testing.jar'
+                sh 'java -jar /var/lib/jenkins/workspace/MultiBranch-Pipeline_loans/testing.jar'
             }
         }
         stage('Continuous Delivery')
