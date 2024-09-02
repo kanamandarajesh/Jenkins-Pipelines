@@ -1,0 +1,29 @@
+@Library('libraries')_
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('Calling libraries')
+        {
+            steps
+            {
+                script
+                {
+                    math.sum(10,20)
+                }
+            }
+        }
+    }
+    post
+    {
+        success
+        {
+            math.sum(10,30)
+        }
+        failure
+        {
+           mail bcc: '', body: 'When generating math test script is failed.', cc: '', from: '', replyTo: '', subject: 'Math test faled', to: 'rajeshkanamanda@gmail.com' 
+        }
+    }
+}
