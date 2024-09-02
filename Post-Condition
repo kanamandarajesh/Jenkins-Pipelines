@@ -1,0 +1,25 @@
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('Continuous Download')
+        {
+            steps
+            {
+                git 'https://github.com/kanamandarajesh/maven.git'
+            }
+        }
+    }
+    post
+    {
+        success
+        {
+            sh 'mvn package'
+        }
+        failure
+        {
+            mail bcc: '', body: 'When generating math test script is failed.', cc: '', from: '', replyTo: '', subject: 'Math test faled', to: 'rajeshkanamanda@gmail.com'
+        }
+    }
+}
