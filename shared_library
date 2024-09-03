@@ -19,7 +19,22 @@ pipeline {
         stage('ContinuousDeploy') {
             steps {
                 script {
-                    cicd.newDeploy()
+                    cicd.newDeploy("http://192.168.199.137:8080", "TestApp")
+                }
+            }
+        }
+        stage('ContinuousTesting') {
+            steps {
+                script {
+                    cicd.newGit("https://github.com/kanamandarajesh/Functional-testing.git")
+                    cicd.newSelenium("Declarative-Pipeline")
+                }
+            }
+        }
+        stage('ContinuousDelivery') {
+            steps {
+                script {
+                    cicd.newDeploy("http://192.168.199.138:8080", "ProdApp")
                 }
             }
         }
