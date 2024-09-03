@@ -1,0 +1,20 @@
+@Library('libraries')_
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('Calling libraries')
+        {
+            steps
+            {
+                script
+                {
+                    math.sum(10,20)
+                    math.mul(10,20)
+                    math.sum(10,20)
+                }
+            }
+        }
+    }
+}
