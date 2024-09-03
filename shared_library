@@ -1,0 +1,27 @@
+@Library('libraries')_
+pipeline {
+    agent any
+    stages {
+        stage('ContinuousDownload') {
+            steps {
+                script {
+                    cicd.newGit("https://github.com/kanamandarajesh/maven.git")
+                }
+            }
+        }
+        stage('ContinuousBuild') {
+            steps {
+                script {
+                    cicd.newMaven()
+                }
+            }
+        }
+        stage('ContinuousDeploy') {
+            steps {
+                script {
+                    cicd.newDeploy()
+                }
+            }
+        }
+    }
+}
