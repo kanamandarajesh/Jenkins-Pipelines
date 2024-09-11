@@ -1,4 +1,5 @@
 ###DEPLOYMENT OF KUBERNETES
+
 In the jenkins server we have to create global credentials.
 
 go to credentials then after create global credentilas.
