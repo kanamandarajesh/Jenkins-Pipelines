@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    environment {
+        REMOTE_USER = 'root'  // Adjust this to your remote user
+        REMOTE_HOST = '192.168.199.129'
+        SSH_KEY_ID = 'my-ssh-key' // This is the ID you set for your SSH credentials
+    }
+    stages {
+        stage('Apply Kubernetes Configuration') {
+            steps {
+                script {
+                    sh '''
+                        ssh -i ${SSH_KEY_ID} -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST} "kubectl apply -f /root/Kubernetes/replicationcontroller.yml"
+                    '''
+                }
+            }
+        }
+    }
+}
