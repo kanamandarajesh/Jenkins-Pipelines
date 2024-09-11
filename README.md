@@ -1,4 +1,5 @@
 ### DEPLOYMENT OF KUBERNETES
+## from jenkins server to handle kubernetes deployment
 
 In the jenkins server we have to create global credentials.
 
@@ -14,4 +15,4 @@ add private key of .ssd/id_rsa
 
 add that key in add passprase
 
-and save run the job.
+save and run the job.
