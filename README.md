@@ -1,5 +1,5 @@
 ### DEPLOYMENT OF KUBERNETES
-## from jenkins server to handle kubernetes deployment
+## from jenkins server to handle kubernetes and docker deployment
 
 In the jenkins server we have to create global credentials.
 
