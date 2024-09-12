@@ -6,7 +6,7 @@ pipeline {
         SSH_KEY_ID = 'my-ssh-key' // This is the ID you set for your SSH credentials
     }
     stages {
-        stage('Apply Kubernetes Configuration') {
+        stage('Container Configuration') {
             steps {
                 script {
                     sh '''
