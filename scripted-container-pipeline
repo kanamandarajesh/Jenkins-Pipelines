@@ -1,0 +1,14 @@
+node {
+    // Define environment variables
+    def REMOTE_USER = 'root'  // Adjust this to your remote user
+    def REMOTE_HOST = '192.168.199.129'
+    def SSH_KEY_ID = 'my-ssh-key'  // Absolute path to your SSH private key
+
+    stage('Creating Container') {
+        // Execute SSH command to run docker-compose
+        sh """
+            ssh -i ${SSH_KEY_ID} -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST} \
+            "docker-compose -f /root/docker/mynginx.yml up -d"
+        """
+    }
+}
