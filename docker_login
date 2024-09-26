@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Login to Docker Registry') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: '3a2a5540-c9f8-46cf-af31-b69252f84a65', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+                        sh '''
+                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                        '''
+                    }
+                }
+            }
+        }
+
+        // Other stages...
+    }
+}
